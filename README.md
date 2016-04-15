@@ -1,6 +1,8 @@
 # manapaho-aws-lambda
 # Version
 0.1.0
+
+[![Build Status](https://travis-ci.org/manapaho/manapaho-aws-lambda.svg?branch=master)](https://travis-ci.org/manapaho/manapaho-aws-lambda)
 ## Overview
 This repository contains all the lambda functions for the manapaho AWS distribution.
 ## Development

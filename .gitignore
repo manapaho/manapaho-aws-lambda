@@ -28,3 +28,6 @@ node_modules
 
 # Ignore dist files
 dist
+
+# Ignore IDE settings
+.idea
