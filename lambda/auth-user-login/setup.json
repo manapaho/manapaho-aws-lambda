@@ -1,0 +1,7 @@
+{
+  "Handler": "index.handler",
+  "Description": "Use this function to log in an already registered and verified user.",
+  "MemorySize": 128,
+  "Publish": true,
+  "Timeout": 3
+}

@@ -1,0 +1,13 @@
+{
+  "AWS_ACCOUNT_ID": "238541850529",
+  "REGION": "us-east-1",
+  "BUCKET": "manapaho.com",
+  "MAX_AGE": "10",
+  "DDB_TABLE": "AuthUsers",
+  "IDENTITY_POOL_NAME": "Auth",
+  "DEVELOPER_PROVIDER_NAME": "login.manapaho.com",
+  "EXTERNAL_NAME": "manapaho",
+  "EMAIL_SOURCE": "no-reply@manapaho.com",
+  "VERIFICATION_PAGE": "https://manapaho/auth/user/verify.html",
+  "RESET_PAGE": "https://manapaho.com/auth/user/reset.html"
+}

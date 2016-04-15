@@ -1,0 +1,7 @@
+{
+  "Handler": "index.handler",
+  "Description": "Use this function to register a new user and send a verification email.",
+  "MemorySize": 128,
+  "Publish": true,
+  "Timeout": 3
+}
