@@ -7,6 +7,8 @@ var AWS = require('aws-sdk');
 var JSZip = require('jszip');
 var config = require('../lambda/config.json');
 
+console.log('start deploy all.');
+
 /**
  * Set the default AWS region.
  */
@@ -30,8 +32,12 @@ var deployedRoles = [];
 
 lambda.listFunctions().promise()
     .then(function (response) {
+        console.log('listFunctions', response);
         deployedLambdaFunctions = response.Functions;
         return iam.listRoles().promise();
+    })
+    .catch(function(err){
+        console.log(err);
     })
     .then(function (response) {
         deployedRoles = response.Roles;
@@ -40,7 +46,7 @@ lambda.listFunctions().promise()
         var lambdaContainerFolder = path.join(__dirname, '../lambda/');
 
         var lambdaFunctionNames = fs.readdirSync(lambdaContainerFolder)
-            .filter(item => fs.statSync(path.join(lambdaContainerFolder, item)).isDirectory());
+            .filter(function(item){ fs.statSync(path.join(lambdaContainerFolder, item)).isDirectory();});
 
         /**
          * Process each local lambda function.
