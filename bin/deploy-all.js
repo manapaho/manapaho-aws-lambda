@@ -36,7 +36,7 @@ lambda.listFunctions().promise()
         deployedLambdaFunctions = response.Functions;
         return iam.listRoles().promise();
     })
-    .catch(function(err){
+    .catch(function (err) {
         console.log(err);
     })
     .then(function (response) {
@@ -49,7 +49,10 @@ lambda.listFunctions().promise()
         console.log(lambdaContainerFolder);
 
         var lambdaFunctionNames = fs.readdirSync(lambdaContainerFolder)
-            .filter(function(item){ fs.statSync(path.join(lambdaContainerFolder, item)).isDirectory();});
+            .filter(function (item) {
+                console.log(item);
+                fs.statSync(path.join(lambdaContainerFolder, item)).isDirectory();
+            });
 
         console.log(lambdaFunctionNames);
 
@@ -115,14 +118,14 @@ function deploy(lambdaFunctionName, roleName) {
     zip.file("index.js", lambdaSource);
     return zip.generateAsync({type: 'nodebuffer'})
         .then(function (lambdaFunctionZip) {
-            
+
             /**
              * Create or update the role and its policies.
              */
             var role = deployedRoles.find(function (r) {
                     return r.RoleName === roleName;
                 }) || null;
-            
+
             if (role === null) {
                 return iam.createRole({
                     AssumeRolePolicyDocument: assumeRolePolicyDocument, /* required */
