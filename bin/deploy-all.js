@@ -51,7 +51,7 @@ lambda.listFunctions().promise()
         var lambdaFunctionNames = fs.readdirSync(lambdaContainerFolder)
             .filter(function (item) {
                 console.log(item);
-                fs.statSync(path.join(lambdaContainerFolder, item)).isDirectory();
+                return fs.statSync(path.join(lambdaContainerFolder, item)).isDirectory();
             });
 
         console.log(lambdaFunctionNames);
