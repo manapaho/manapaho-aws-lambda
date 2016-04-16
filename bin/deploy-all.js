@@ -32,7 +32,7 @@ var deployedRoles = [];
 
 lambda.listFunctions().promise()
     .then(function (response) {
-        console.log('listFunctions', response);
+        console.log('listFunctions:', response);
         deployedLambdaFunctions = response.Functions;
         return iam.listRoles().promise();
     })
