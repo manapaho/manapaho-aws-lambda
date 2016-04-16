@@ -40,13 +40,18 @@ lambda.listFunctions().promise()
         console.log(err);
     })
     .then(function (response) {
+        console.log('roles:', response);
         deployedRoles = response.Roles;
     })
     .then(function () {
         var lambdaContainerFolder = path.join(__dirname, '../lambda/');
 
+        console.log(lambdaContainerFolder);
+
         var lambdaFunctionNames = fs.readdirSync(lambdaContainerFolder)
             .filter(function(item){ fs.statSync(path.join(lambdaContainerFolder, item)).isDirectory();});
+
+        console.log(lambdaFunctionNames);
 
         /**
          * Process each local lambda function.
